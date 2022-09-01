@@ -21,6 +21,7 @@ public class ApplyForce : MonoBehaviour
         UpdatePositionOnScreen();
         ApplyForceOnce();
         DestroyIfOffScreen();
+        QuitApplication();
     }
 
     // Here I'm getting position of cube on screen
@@ -50,5 +51,10 @@ public class ApplyForce : MonoBehaviour
     private bool IsOnScreen() 
     {
         return _posOnScreen.x > -_screenOffset && _posOnScreen.x < Screen.width + _screenOffset && _posOnScreen.y > -_screenOffset && _posOnScreen.y < Screen.height + _screenOffset;  
+    }
+
+    // Just quiting application
+    private void QuitApplication() {
+        if (Input.GetKeyDown(KeyCode.Escape)) { Application.Quit(); }
     }
 }
